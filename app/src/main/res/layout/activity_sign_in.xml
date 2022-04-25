@@ -2,14 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btnSignUp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".SignInActivity"
     android:background="@color/grayBackground"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SignUpActivity">
-
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,23 +26,12 @@
             android:layout_height="100dp"
             app:srcCompat="@drawable/whatsapp" />
 
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
-            android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName"
-            android:padding="9dp" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:background="@android:color/white"
             android:ems="10"
             android:hint="Email"
@@ -54,6 +42,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:background="@android:color/white"
             android:ems="10"
             android:hint="Password"
@@ -67,7 +56,7 @@
             android:layout_gravity="right"
             android:gravity="right"
             android:padding="5dp"
-            android:text="Already Have Account" />
+            android:text="Click For Sign Up" />
 
         <Button
             android:id="@+id/button"
@@ -75,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="15dp"
-            android:text="Sign Up"
+            android:text="Sign In"
             app:cornerRadius="5dp" />
 
         <LinearLayout
@@ -116,10 +105,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Sign With Phone"
+            android:text="Sign Up With Phone"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
     </LinearLayout>
+
 
 </LinearLayout>
