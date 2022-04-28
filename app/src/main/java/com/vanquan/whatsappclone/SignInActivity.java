@@ -39,8 +39,6 @@ public class SignInActivity extends AppCompatActivity {
     FirebaseDatabase database;
 
 
-
-
     //private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     //private boolean showOneTapUI = true;
 
@@ -157,9 +155,6 @@ public class SignInActivity extends AppCompatActivity {
                             users.setProfilepic(user.getPhotoUrl().toString());
 
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
-
-
-
 
                            // updateUI(user);
                         } else {

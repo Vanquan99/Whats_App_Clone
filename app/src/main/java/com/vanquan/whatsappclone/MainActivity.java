@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.vanquan.whatsappclone.Adapters.FragmentsAdapter;
 import com.vanquan.whatsappclone.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         getSupportActionBar().hide();
+
+        //viewpager
+        binding.viewpager.setAdapter(new FragmentsAdapter(getSupportFragmentManager()));
+        binding.tabLayOut.setupWithViewPager(binding.viewpager);
     }
 
     @Override
