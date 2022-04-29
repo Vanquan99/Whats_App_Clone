@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
 
-    ArrayAdapter<Users> list;
+    ArrayList<Users> list;
     Context context;
 
     public UsersAdapter(ArrayList<Users> list, Context context){
@@ -37,7 +37,7 @@ public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.viewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        Users users = list.getItem(position);
+        Users users = list.get(position);
 
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.avatarman).into(holder.image);
 
@@ -46,7 +46,7 @@ public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.viewHolder>
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
 
