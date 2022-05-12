@@ -43,8 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(SignUpActivity.this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("We're creating your account");
-
-        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
+//btnSignUp
+        binding.buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

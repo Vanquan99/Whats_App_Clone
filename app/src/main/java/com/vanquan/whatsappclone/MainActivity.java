@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.setting:
                 Toast.makeText(this, "Clicked menu", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(i);
                 break;
 
             case R.id.logout:
@@ -57,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this,SignInActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.groupchat:
+                Intent intent1 = new Intent(MainActivity.this, GroupChatActivity.class);
+                startActivity(intent1);
                 break;
         }
         return super.onOptionsItemSelected(item);

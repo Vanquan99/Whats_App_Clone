@@ -1,6 +1,7 @@
 package com.vanquan.whatsappclone.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Picture;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.vanquan.whatsappclone.ChatDetailActivity;
 import com.vanquan.whatsappclone.Models.Users;
 import com.vanquan.whatsappclone.R;
 
@@ -40,8 +47,43 @@ public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.viewHolder>
         Users users = list.get(position);
 
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.avatarman).into(holder.image);
-
         holder.userName.setText(users.getUserName());
+
+
+        // show last message on user List
+
+        FirebaseDatabase.getInstance().getReference().child("chats")
+                .child(FirebaseAuth.getInstance().getUid() + users.getUserId())
+                .orderByChild("timestamp")
+                .limitToLast(1)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChildren()){
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()){
+
+                                holder.lastMessage.setText(snapshot1.child("message").getValue().toString());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ChatDetailActivity.class);
+                intent.putExtra("userId",users.getUserId());
+                intent.putExtra("profilePic",users.getProfilepic());
+                intent.putExtra("userName",users.getUserName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

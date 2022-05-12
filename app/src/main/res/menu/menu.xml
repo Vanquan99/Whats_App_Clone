@@ -5,6 +5,12 @@
         android:title="Setings">
     </item>
 
+    <item android:id="@+id/groupchat"
+        android:title="Group chat">
+    </item>
+
+<!--    group chating-->
+
     <item android:id="@+id/logout"
         android:title="Logout">
     </item>

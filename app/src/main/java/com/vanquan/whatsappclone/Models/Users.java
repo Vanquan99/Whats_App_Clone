@@ -1,22 +1,28 @@
 package com.vanquan.whatsappclone.Models;
 
 public class Users {
-    String profilepic, userName, email, password,userId, lastMessage;
+    String profilepic, userName, email, password,userId, lastMessage, status;
 
-    public Users(String profilepic, String userName, String email, String password, String userId, String lastMessage) {
+
+    //contructor
+    public Users(String profilepic, String userName, String email, String password, String userId, String lastMessage, String status) {
         this.profilepic = profilepic;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.userId = userId;
         this.lastMessage = lastMessage;
+        this.status = status;
     }
 
     public  Users(){
 
     }
 
-    //sign up constructor
+    public String getUserId() {
+        return userId;
+    }
+//sign up constructor
 
     public Users(String userName, String email, String password) {
 
@@ -26,7 +32,13 @@ public class Users {
 
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getProfilepic() {
         return profilepic;
